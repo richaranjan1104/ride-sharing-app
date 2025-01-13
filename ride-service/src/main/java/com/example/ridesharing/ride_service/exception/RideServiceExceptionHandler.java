@@ -1,6 +1,6 @@
 package com.example.ridesharing.ride_service.exception;
 
-import com.example.ridesharing.driver_service.exceptions.DriverServiceExceptionHandler;
+//import com.example.ridesharing.driver_service.exceptions.DriverServiceExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

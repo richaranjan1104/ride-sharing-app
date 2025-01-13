@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
         <module name="naming-server" />
+        <module name="user-service" />
       </profile>
       <profile name="Annotation profile for ride-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -18,7 +19,6 @@
         </processorPath>
         <module name="ride-service" />
         <module name="driver-service" />
-        <module name="user-service" />
       </profile>
     </annotationProcessing>
   </component>

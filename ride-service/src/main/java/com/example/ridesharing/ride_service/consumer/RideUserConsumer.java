@@ -1,5 +1,6 @@
 package com.example.ridesharing.ride_service.consumer;
 
+import com.example.ridesharing.model.User;
 import com.example.ridesharing.ride_service.dto.RideDetailsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -13,17 +14,17 @@ public class RideUserConsumer {
     @Autowired
     private KafkaTemplate<String,Object> kafkaTemplate;
 
-    @KafkaListener(topics = "user-ride-topic",groupId = "user-ride-group1")
-    public void consumeUserDetails(UserDetailsDto userDetailsDto) {
+    @KafkaListener(topics = "user-registration-topic",groupId = "user-ride-group1")
+    public void consumeUserDetails(User userDetailsDto) {
 
         /**
          *   Based on the UserDto data like userName and phone number we have to set below
          *   data and send back this information to driver service
          */
         RideDetailsDto rideDetailsDto = new RideDetailsDto();
-        if(userDetailsDto.getUsername != null){
-            String userName = userDetailsDto.getUserName();
-            String phoneNumber = userDetailsDto.getPhoneNumber();
+        if(userDetailsDto.getUsername() != null){
+            String userName = userDetailsDto.getUsername();
+            String phoneNumber = userDetailsDto.getMobileNumber();
             rideDetailsDto.setUserName(userName);
             rideDetailsDto.setMobileNumber(phoneNumber);
             rideDetailsDto.setPickupLocation("Sarjapura");
